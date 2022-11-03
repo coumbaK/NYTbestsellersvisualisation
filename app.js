@@ -23,23 +23,23 @@ window.addEventListener("load", function () {
   
   let url = 'data/hail_size.json'
   // console.log("REQUEST")
-  // fetch('data/hail_size.json')
-  //   .then((response) => {
-  //   console.log(response)
-  //   response.json()
-  // })
+  fetch('data/hail_size.json')
+    .then((response) => {
+    console.log(response)
+    response.json()
+  })
   //   .then((json) => console.log(json));
   
-  fetch(urlToUser, parameters)
-  .then(response => {
-    return response.text()
-  })
-  .then((data) => {
-    resolve(data ? JSON.parse(data) : {})
-  })
-  .catch((error) => {
-    reject(error)
-  })
+  // fetch(urlToUser, parameters)
+  // .then(response => {
+  //   return response.text()
+  // })
+  // .then((data) => {
+  //   resolve(data ? JSON.parse(data) : {})
+  // })
+  // .catch((error) => {
+  //   reject(error)
+  // })
 	new Vue({
 		template: `<div id="app">
 			
