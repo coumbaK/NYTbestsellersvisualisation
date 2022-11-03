@@ -1,4 +1,4 @@
-# A6: Chatbot
+# A7: Data Visualization
 
 ## Your name
 Test McStudent
