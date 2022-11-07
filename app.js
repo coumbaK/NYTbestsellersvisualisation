@@ -1,6 +1,9 @@
-import xkcdData from "./xkcd.json" assert { type: "json" };
+
 import cats from "./cats-small.json" assert { type: "json" };
-import {hexToHSL} from "./utilities.js"
+// import data from "./palettes.json" assert { type: "json" };
+import {hexToHSL} from "./utilities.js";
+import xkcdData from "./xkcd.json" assert { type: "json" };
+import data from "./wikipedia.json" assert { type: "json" };
 console.log(xkcdData)
 
 // Preprocess data
@@ -60,10 +63,25 @@ window.addEventListener("load", function () {
 
         p.draw = () => {
 //            Draw all the colors
-          colors.forEach(c => {
-            p.fill(c.hsl)
-            p.circle(c.hsl[0], c.hsl[1], c.hsl[2]*.1 + 1)
-          })
+          // colors.forEach(c => {
+          //   p.fill(c.hsl)
+          //   p.circle(c.hsl[0], c.hsl[1], c.hsl[2]*.1 + 1)
+          //    })
+          
+            cats.forEach(cat => {
+              
+              cat.drawing.forEach(stroke => {
+                let x = stroke[0]
+                let y = stroke[1]
+                p.noFill()
+                p.beginShape()
+                for (var i = 0; i < x.length; i++) {
+                  p.vertex(x[i], y[i])
+                }
+                p.endShape()
+              })
+            })
+         
           
         };
 
