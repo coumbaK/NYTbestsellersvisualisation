@@ -23,11 +23,26 @@ window.addEventListener("load", function () {
   
   let url = 'data/hail_size.json'
   // console.log("REQUEST")
-  fetch('data/hail_size.json')
-    .then((response) => {
+  
+  fetch(url, {
+    method: 'GET',
+    headers: {
+        'Accept': 'application/json',
+    },
+}).then((response) => {
+    console.log("Loaded JSON")
     console.log(response)
-    response.json()
+    console.log(response.text())
+    
+  }).then((data) => {
+    console.log(data ? JSON.parse(data):"none")
   })
+  
+  // fetch('data/hail_size.json')
+  //   .then((response) => {
+  //   console.log(response)
+  //   response.json()
+  // })
   //   .then((json) => console.log(json));
   
   // fetch(urlToUser, parameters)
