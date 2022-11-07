@@ -1,35 +1,35 @@
-// async function fetchPosts() {
-//   const response = await fetch('xkcd.json',  {
-//     method: 'get',
-//     mode: 'no-cors',
-//     headers: {
-//        'Access-Control-Allow-Origin' : '*'
-//     }})
-//   console.log(response)
-//   const posts = await response.json()
-//   return posts
-// }
+import xkcdData from "./xkcd.json" assert { type: "json" };
+console.log(xkcdData)/**
 
-// fetchPosts()
+ * Starter code
+ * Chat application with a bot
+ */
 
-let url = 'xkcd.json'
-let params = {
-    method: 'get',
-    mode: 'no-cors',
-    headers: {
-       'Access-Control-Allow-Origin' : '*'
-    }}
+/* globals Vue, p5, BOT_MAPS, BotSimulator */
 
-fetch(url, params)
-.then(response => {
-  console.log("got ", response)
-  return response.text()
-})
-.then((data) => {
-  console.log(data)
-  // resolve(data ? JSON.parse(data) : {})
-})
-.catch((error) => {
-  console.log("error")
-  // reject(error)
-})
+window.addEventListener("load", function () {
+	//------------------------------------------------------
+	//------------------------------------------------------
+	//------------------------------------------------------
+	//------------------------------------------------------
+	// VUE!!!
+	// Create a new vue interface
+
+
+
+	new Vue({
+		template: `<div id="app">
+			
+		  APP
+      <div v-for="color in xkcdData.colors">{{color}}</div>
+		</div>`,
+   
+
+		data() {
+      return {
+        xkcdData: xkcdData
+			};
+		},
+		el: "#app",
+	});
+});
