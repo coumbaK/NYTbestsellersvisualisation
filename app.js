@@ -1,5 +1,6 @@
 import xkcdData from "./xkcd.json" assert { type: "json" };
-import hexToHSL from "./utilities.js"
+import cats from "./cats-small.json" assert { type: "json" };
+import {hexToHSL} from "./utilities.js"
 console.log(xkcdData)
 
 // Preprocess data
@@ -11,7 +12,7 @@ class Color {
   }
 }
 
-let colors = xkcdData.colors.map()
+let colors = xkcdData.colors.map(c => new Color({hex:c.hex, name:c.name}))
 
 /**
 
@@ -59,6 +60,10 @@ window.addEventListener("load", function () {
 
         p.draw = () => {
 //            Draw all the colors
+          colors.forEach(c => {
+            p.fill(c.hsl)
+            p.circle(c.hsl[0], c.hsl[1], c.hsl[2]*.1 + 1)
+          })
           
         };
 
