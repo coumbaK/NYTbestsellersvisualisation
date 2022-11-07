@@ -35,8 +35,17 @@ window.addEventListener("load", function () {
     console.log(response.text())
     
   }).then((data) => {
+    console.log(data)
     console.log(data ? JSON.parse(data):"none")
   })
+  
+  Papa.parse('state_wise_data.csv', {
+    download: true,
+    complete: results => {
+        console.log(results);
+    }
+})
+  
   
   // fetch('data/hail_size.json')
   //   .then((response) => {
