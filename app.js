@@ -43,6 +43,16 @@ window.addEventListener("load", function () {
 
         p.draw = () => {
           // Draw something
+          
+          this.colors.forEach(c => {
+            p.fill(...c.hsl)
+            p.noStroke()
+              p.stroke(0)
+            if (c.source === "wiki")
+              p.stroke(100)
+            p.circle(c.hsl[0], c.hsl[2]*4, 6)
+            
+          })
          
           // Quickdraw drawing example
           // You would need to do something *more interesting* than just drawing the images
@@ -71,7 +81,7 @@ window.addEventListener("load", function () {
 
       let p = undefined;
       const CANVAS_WIDTH = 400;
-      const CANVAS_HEIGHT = 200;
+      const CANVAS_HEIGHT = 300;
       // Create P5
       const CANVAS_EL = this.$refs.canvasHolder;
       CANVAS_EL.style.width = CANVAS_WIDTH + "px";

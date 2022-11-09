@@ -41,12 +41,22 @@ class Color {
   }
 }
 
+// XKCD
 let colors = xkcdColors.colors.map(
-  (c) => new Color({ hex: c.hex, name: c.name, source: "xkcd" })
+  (c) => new Color({ hex: c.hex, name: c.color, source: "xkcd" })
 );
+
+console.log(wikiColors)
+let wikiProcessed = wikiColors.map(
+  (c) => new Color({ hex: c.color, name: c.name, source: "wiki" })
+)
+console.log(wikiColors)
+colors = colors.concat(wikiProcessed)
+
 
 let cats = catsData.map(c => quickdrawToVectors(c))
 
+console.log(colors)
 
 // What data we want to export to our visualization app?
 let data = {
