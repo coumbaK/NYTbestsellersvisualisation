@@ -1,7 +1,7 @@
 import { hexToHSL } from "./utilities.js";
 import { data } from "./data.js";
 
-console.log("DATA", data)
+console.log("Loaded data", data)
 
 /**
 
@@ -18,31 +18,19 @@ window.addEventListener("load", function () {
   //------------------------------------------------------
   // VUE!!!
   // Create a new vue interface
-
-  let p = undefined;
-  const CANVAS_WIDTH = 400;
-  const CANVAS_HEIGHT = 200;
+  
 
   new Vue({
     template: `<div id="app">
 	    <div ref="canvasHolder"></div>		
 		  
-      <div v-for="color in xkcdData.colors" :style="{backgroundColor:color.hex }">{{color}}</div>
+      <div v-for="color in colors" :style="{backgroundColor:color.hex }">{{color}}</div>
 	
   </div>`,
 
     mounted() {
-      console.log("REQUEST DATA");
-      let url = `https://gutendex.com/books/?topic=pirates`;
-
-      fetch(url, {})
-        .then((res) => res.json())
-        .then((out) => console.log("Checkout this JSON! ", out))
-        .catch((err) => {
-          throw err;
-        });
-
-      // Create P5
+     
+      // Create P5 when we mount this element
       const s = (p0) => {
         p = p0;
 
@@ -56,42 +44,29 @@ window.addEventListener("load", function () {
           });
 
         p.draw = () => {
-          //            Draw all the colors
-          // colors.forEach(c => {
-          //   p.fill(c.hsl)
-          //   p.circle(c.hsl[0], c.hsl[1], c.hsl[2]*.1 + 1)
-          //    })
-
-          cats.forEach((cat) => {
-            cat.drawing.forEach((stroke) => {
-              let x = stroke[0];
-              let y = stroke[1];
-              p.noFill();
-              p.beginShape();
-              for (var i = 0; i < x.length; i++) {
-                p.vertex(x[i], y[i]);
-              }
-              p.endShape();
-            });
-          });
+          // Draw something
         };
 
         p.mouseClicked = () => {
           // Mouse interaction
         };
       };
-
+      
+      
+      
+      let p = undefined;
+      const CANVAS_WIDTH = 400;
+      const CANVAS_HEIGHT = 200;
       // Create P5
       const CANVAS_EL = this.$refs.canvasHolder;
       CANVAS_EL.style.width = CANVAS_WIDTH + "px";
       CANVAS_EL.style.height = CANVAS_HEIGHT + "px";
       new p5(s, CANVAS_EL);
     },
-
+    
+    // We will use your data object as the data for Vue
     data() {
-      return {
-        xkcdData: xkcdData,
-      };
+      return data
     },
     el: "#app",
   });

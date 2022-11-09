@@ -1,3 +1,11 @@
+function quickdrawToVectors(data) {
+  console.log(data)
+  return data.drawing.forEach(stroke => {
+    // let count = stroke[0].length
+    return stroke[0].map((val, index) => new Vector2D(val, stroke[1][index]))
+  }) 
+}
+
 
 function hexToHSL(H) {
   // Convert hex to RGB first
@@ -90,4 +98,4 @@ function HSLToHex(h, s, l) {
 }
 
 
-export {hexToHSL}
+export {hexToHSL, quickdrawToVectors, HSLToHex}
