@@ -22,8 +22,8 @@ window.addEventListener("load", function () {
   new Vue({
     template: `<div id="app">
 	    <div ref="canvasHolder"></div>		
-		  <div v-if="false">
-      <div v-for="color in colors" :style="{backgroundColor:color.hex }">{{color}}</div>
+		  <div v-if="true" class="overlay scroll">
+        <div v-for="color in colors" :style="{backgroundColor:color.hex }">{{color}}</div>
 	    </div>
   </div>`,
 
@@ -44,14 +44,21 @@ window.addEventListener("load", function () {
         p.draw = () => {
           // Draw something
           
-          this.colors.forEach(c => {
+          // Maybe filter first!
+          let colorsToShow = this.colors.filter(c => c.name.toLowerCase().includes(this.colorName))
+          console.log(colorsToShow)
+          colorsToShow.forEach((c, index) => {
+            let x = c.hsl[0]
+            let y = c.hsl[2]*4
             p.fill(...c.hsl)
             p.noStroke()
               p.stroke(0)
             if (c.source === "wiki")
               p.stroke(100)
-            p.circle(c.hsl[0], c.hsl[2]*4, 6)
+            p.circle(x, y, 6)
             
+            
+            p.text(c.name, x, y)
           })
          
           // Quickdraw drawing example
@@ -91,6 +98,7 @@ window.addEventListener("load", function () {
 
     // We will use your data object as the data for Vue
     data() {
+      data.colorName = "purple"
       return data;
     },
     el: "#app",
