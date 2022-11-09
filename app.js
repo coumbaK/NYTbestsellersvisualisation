@@ -1,22 +1,7 @@
-import cats from "./cats-small.json" assert { type: "json" };
-// import data from "./palettes.json" assert { type: "json" };
 import { hexToHSL } from "./utilities.js";
-import xkcdData from "./xkcd.json" assert { type: "json" };
-import data from "./wikipedia.json" assert { type: "json" };
-// console.log(xkcdData)
+import { data } from "./data.js";
 
-// Preprocess data
-class Color {
-  constructor({ hex, name }) {
-    this.hex = hex;
-    this.name = name;
-    this.hsl = hexToHSL(hex);
-  }
-}
-
-let colors = xkcdData.colors.map(
-  (c) => new Color({ hex: c.hex, name: c.name })
-);
+console.log("DATA", data)
 
 /**
 
