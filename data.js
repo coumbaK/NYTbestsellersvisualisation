@@ -8,18 +8,22 @@ import wikiColors from "./data/wikipedia-colors.json" assert { type: "json" };
 
 console.log("....Loading data");
 
+//==================================
 // API example
-function loadGutendexData(topic) {
-  console.log("REQUEST DATA");
-  let url = f`https://gutendex.com/books/?topic=${topic}`;
-  console.log("Fetch URL", topic);
-  fetch(url, {})
-    .then((res) => res.json())
-    .then((out) => console.log("Checkout this JSON! ", out))
-    .catch((err) => {
-      throw err;
-    });
-}
+// function loadGutendexData(topic) {
+//   console.log("REQUEST DATA");
+//   let url = f`https://gutendex.com/books/?topic=${topic}`;
+//   console.log("Fetch URL", topic);
+//   fetch(url, {})
+//     .then((res) => res.json())
+//     .then((out) => console.log("Checkout this JSON! ", out))
+//     .catch((err) => {
+//       throw err;
+//     });
+// }
+// loadGutendexData("pirates")
+//==================================
+
 
 // Load and preprocess any data
 
@@ -42,6 +46,7 @@ let colors = xkcdColors.colors.map(
 );
 
 let cats = catsData.map(c => quickdrawToVectors(c))
+
 
 // What data we want to export to our visualization app?
 let data = {

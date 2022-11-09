@@ -1,8 +1,8 @@
 function quickdrawToVectors(data) {
-  console.log(data)
-  return data.drawing.forEach(stroke => {
+  // Reorder quickdraw data to make it more convenient for drawing with P5
+  return data.drawing.map(stroke => {
     // let count = stroke[0].length
-    return stroke[0].map((val, index) => new Vector2D(val, stroke[1][index]))
+    return stroke[0].map((val, index) => [val, stroke[1][index]])
   }) 
 }
 
