@@ -48,9 +48,9 @@ window.addEventListener("load", function () {
 
     mounted() {
       console.log("REQUEST DATA");
-      let url = `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Craig%20Noone&format=json`;
+      let url = `https://gutendex.com/books/?topic=pirates`;
 
-      fetch(url, { mode: "no-cors" })
+      fetch(url, {})
         .then((res) => res.json())
         .then((out) => console.log("Checkout this JSON! ", out))
         .catch((err) => {
