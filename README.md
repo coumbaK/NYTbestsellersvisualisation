@@ -18,26 +18,31 @@ Test McStudent
 --your answer here (e.g, what kinds of data structures is it in? What properties does it have?) --
 
 
-
-## How are you visualizing the data?
-
---your answer here 
-
-
-
-
-## How are you visualizing the data?
-
---your answer here 
-
-
-
-## What did you notice about this data t
-
---your answer here 
-
 ## How did you pre-process your data, if at all?
 --your answer here--
+
+## How are you visualizing the data?
+
+--your answer here 
+
+
+
+
+## How are you visualizing the data?
+
+--your answer here 
+
+
+
+## What did you notice about this data that you didn't anticipate?
+
+--your answer here 
+
+
+## What do you want the visitor to your page to understand about this data?
+
+--your answer here 
+
 
 
 ## List any resources (code, images, etc) you've used, and where you got them from
