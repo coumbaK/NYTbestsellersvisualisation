@@ -10,18 +10,23 @@ console.log("....Loading data");
 
 //==================================
 // API example
-// function loadGutendexData(topic) {
-//   console.log("REQUEST DATA");
-//   let url = f`https://gutendex.com/books/?topic=${topic}`;
-//   console.log("Fetch URL", topic);
-//   fetch(url, {})
-//     .then((res) => res.json())
-//     .then((out) => console.log("Checkout this JSON! ", out))
-//     .catch((err) => {
-//       throw err;
-//     });
-// }
-// loadGutendexData("pirates")
+function loadGutendexData(topic) {
+  
+  console.log("REQUEST DATA");
+  let url = `https://gutendex.com/books/?topic=${topic}`;
+  
+  console.log("Fetch URL", topic);
+  fetch(url, {mode: "cors"})
+    .then((res) => {
+    console.log(res)
+     return res.json()
+    })
+    .then((out) => console.log("Checkout this JSON! ", out))
+    .catch((err) => {
+      throw err;
+    });
+}
+loadGutendexData("pirates")
 //==================================
 
 
@@ -46,17 +51,17 @@ let colors = xkcdColors.colors.map(
   (c) => new Color({ hex: c.hex, name: c.color, source: "xkcd" })
 );
 
-console.log(wikiColors)
+// console.log(wikiColors)
 let wikiProcessed = wikiColors.map(
   (c) => new Color({ hex: c.color, name: c.name, source: "wiki" })
 )
-console.log(wikiColors)
+// console.log(wikiColors)
 colors = colors.concat(wikiProcessed)
 
 
 let cats = catsData.map(c => quickdrawToVectors(c))
 
-console.log(colors)
+// console.log(colors)
 
 // What data we want to export to our visualization app?
 let data = {

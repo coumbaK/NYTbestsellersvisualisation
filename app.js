@@ -46,7 +46,7 @@ window.addEventListener("load", function () {
           
           // Maybe filter first!
           let colorsToShow = this.colors.filter(c => c.name.toLowerCase().includes(this.colorName))
-          console.log(colorsToShow)
+          // console.log(colorsToShow)
           colorsToShow.forEach((c, index) => {
             let x = c.hsl[0]
             let y = c.hsl[2]*4
