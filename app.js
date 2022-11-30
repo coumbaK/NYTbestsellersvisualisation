@@ -29,6 +29,7 @@ window.addEventListener("load", function () {
       // Create P5 when we mount this element
       const s = (p0) => {
         p = p0;
+        let img;
 
         (p.preload = () => {
           
@@ -42,7 +43,7 @@ window.addEventListener("load", function () {
             p.ellipseMode(p.RADIUS);
           });
 
-        p.draw = (img) => {
+        p.draw = () => {
           // Draw something
           
           p.image(img, 0, 0);
@@ -77,6 +78,7 @@ window.addEventListener("load", function () {
       let p = undefined;
       const CANVAS_WIDTH = 400;
       const CANVAS_HEIGHT = 300;
+      
       
       // Create P5
       const CANVAS_EL = this.$refs.canvasHolder;
