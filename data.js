@@ -1,72 +1,40 @@
-// A place for utility functions, if you need any
-import { hexToHSL, quickdrawToVectors } from "./utilities.js";
+import words from "./data.json" assert { type: "json" };
+import clusters from "./clusters.json" assert { type: "json" };
+import uniquewords from "./uniquewords.json" assert { type: "json" };
 
-import catsData from "./data/quickdraw-cats-small.json" assert { type: "json" };
-import palettes from "./data/colorlovers-palettes.json" assert { type: "json" };
-import xkcdColors from "./data/xkcd-colors.json" assert { type: "json" };
-import wikiColors from "./data/wikipedia-colors.json" assert { type: "json" };
+//process json data
+let datawords = words.map((word) => {
+  return {
+    text: word.word,
+    value: word.count,
+  };
+});
+let dataclusters = clusters.map((cluster) => {
+  return {
+    list: cluster.words,
+    index: cluster.cluster,
+  };
+});
 
-console.log("....Loading data");
-
-//==================================
-// API example
-function loadGutendexData(topic) {
-  
-  console.log("REQUEST DATA");
-  let url = `https://gutendex.com/books/?topic=${topic}`;
-  
-  console.log("Fetch URL", topic);
-  fetch(url, {mode: "cors"})
-    .then((res) => {
-    console.log(res)
-     return res.json()
-    })
-    .then((out) => console.log("Checkout this JSON! ", out))
-    .catch((err) => {
-      throw err;
-    });
-}
-loadGutendexData("pirates")
-//==================================
-
-
-// Load and preprocess any data
-
-// Preprocess data
-
-// Often its useful to store your data
-// (planets, movies, colors, soccer matches,etc),
-// in a class for easier access
-class Color {
-  constructor({ hex, name, source }) {
-    this.hex = hex;
-    this.name = name;
-    this.hsl = hexToHSL(hex);
-    this.source = source;
-  }
+let unique = uniquewords.map((word) => {
+  return {
+    text: word.word,
+  };
+});
+//choose randomly 100 words from uniquewords
+let randomwords = [];
+for (let i = 0; i < 100; i++) {
+  let random = Math.floor(Math.random() * uniquewords.length);
+  randomwords.push(uniquewords[random].word);
+  uniquewords.splice(random, 1);
 }
 
-// XKCD
-let colors = xkcdColors.colors.map(
-  (c) => new Color({ hex: c.hex, name: c.color, source: "xkcd" })
-);
+console.log(randomwords);
 
-// console.log(wikiColors)
-let wikiProcessed = wikiColors.map(
-  (c) => new Color({ hex: c.color, name: c.name, source: "wiki" })
-)
-// console.log(wikiColors)
-colors = colors.concat(wikiProcessed)
-
-
-let cats = catsData.map(c => quickdrawToVectors(c))
-
-// console.log(colors)
-
-// What data we want to export to our visualization app?
 let data = {
-  cats: cats,
-  colors: colors,
+  words: datawords,
+  clusters: dataclusters,
+  unique: randomwords,
 };
 
 export { data };

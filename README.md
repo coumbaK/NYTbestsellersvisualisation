@@ -1,22 +1,32 @@
 # A7: Data Visualization
 
 ## Your name
-Test McStudent
+Mame Coumba Ka
 
 ## Your Glitch link
-[my page](https://galaxykate-a1.glitch.me)
+[my page](https://coumbak-a7.glitch.me)
 
 
 ## What data sources are you using? Link the API/Kaggle/etc pages 
 
---your answer here--
+https://www.kaggle.com/code/jesscpa23/ny-times-bestseller-list-analysis/data
 
 
 
 ## Describe the format of the data
 
---your answer here (e.g, what kinds of data structures is it in? What properties does it have?) --
-
+The data is a csv table that contains 12 fieldds [published_date : Date the list was published,
+list_name: Book category,
+list_name_encoded:	Encoded category,
+rank:	Rank on the list for that week,
+isbn13:	ISBN 13 of the book,
+isbn10:	ISBN 10 of the book,
+title:	Title of the book,
+author:	Author of the book,
+description:	Description of the book,
+amazon_product_url:	Amazon URL,
+price:	Price of the book,
+weeks_on_list ]
 
 ## How did you pre-process your data, if at all?
 --your answer here--

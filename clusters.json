@@ -1,0 +1,152 @@
+[
+  {
+    "cluster": 1,
+    "words": [
+      "students",
+      "memoir",
+      "girl",
+      "death",
+      "young",
+      "student",
+      "save",
+      "accident",
+      "originally",
+      "parents"
+    ]
+  },
+  {
+    "cluster": 2,
+    "words": [
+      "members",
+      "white",
+      "house",
+      "movie",
+      "recently",
+      "deceased",
+      "biography",
+      "years",
+      "interviews",
+      "based"
+    ]
+  },
+  {
+    "cluster": 3,
+    "words": [
+      "service",
+      "time",
+      "collection",
+      "loss",
+      "falls",
+      "understand",
+      "spouse",
+      "way",
+      "communicate",
+      "love"
+    ]
+  },
+  {
+    "cluster": 4,
+    "words": [
+      "man",
+      "people",
+      "boy",
+      "woman",
+      "new",
+      "school",
+      "war",
+      "memoir",
+      "life",
+      "world"
+    ]
+  },
+  {
+    "cluster": 5,
+    "words": [
+      "girls",
+      "war",
+      "olympic",
+      "memoir",
+      "growing",
+      "career",
+      "originally",
+      "world",
+      "parentstobe",
+      "advice"
+    ]
+  },
+  {
+    "cluster": 6,
+    "words": [
+      "kennedy",
+      "lincoln",
+      "abraham",
+      "surrounding",
+      "events",
+      "assassination",
+      "recounts",
+      "host",
+      "oreilly",
+      "factor"
+    ]
+  },
+  {
+    "cluster": 7,
+    "words": [
+      "scott",
+      "end",
+      "animals",
+      "creatures",
+      "quest",
+      "hidden",
+      "characters",
+      "secret",
+      "treasure",
+      "color"
+    ]
+  },
+  {
+    "cluster": 8,
+    "words": [
+      "discusses",
+      "mission",
+      "killed",
+      "iraq",
+      "sniper",
+      "experiences",
+      "battlefield",
+      "member",
+      "seals",
+      "navy"
+    ]
+  },
+  {
+    "cluster": 9,
+    "words": [
+      "world",
+      "home",
+      "family",
+      "11",
+      "13",
+      "10",
+      "12",
+      "minutes",
+      "unabridged",
+      "hours"
+    ]
+  },
+  {
+    "cluster": 10,
+    "words": [
+      "boy",
+      "survival",
+      "live",
+      "tv",
+      "fights",
+      "nazi",
+      "burning",
+      "saves",
+      "dystopia",
+      "girl"
+    ]
+  }
+]
