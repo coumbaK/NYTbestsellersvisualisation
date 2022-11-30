@@ -22,9 +22,7 @@ window.addEventListener("load", function () {
   new Vue({
     template: `<div id="app">
 	    <div ref="canvasHolder"></div>		
-		  <div v-if="true" class="overlay scroll">
-        <div v-for="color in colors" :style="{backgroundColor:color.hex }">{{color}}</div>
-	    </div>
+		  
   </div>`,
 
     mounted() {
@@ -33,7 +31,10 @@ window.addEventListener("load", function () {
         p = p0;
 
         (p.preload = () => {
+          
+          img = p.loadImage("https://cdn.glitch.global/a5265ad8-4e7c-4eb4-97a0-590b4d551bd3/pic.png?v=1669782875891");
           // Any preloading
+       
         }),
           (p.setup = () => {
             p.createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -41,25 +42,12 @@ window.addEventListener("load", function () {
             p.ellipseMode(p.RADIUS);
           });
 
-        p.draw = () => {
+        p.draw = (img) => {
           // Draw something
           
+          p.image(img, 0, 0);
           // Maybe filter first!
-          let colorsToShow = this.colors.filter(c => c.name.toLowerCase().includes(this.colorName))
-          // console.log(colorsToShow)
-          colorsToShow.forEach((c, index) => {
-            let x = c.hsl[0]
-            let y = c.hsl[2]*4
-            p.fill(...c.hsl)
-            p.noStroke()
-              p.stroke(0)
-            if (c.source === "wiki")
-              p.stroke(100)
-            p.circle(x, y, 6)
-            
-            
-            p.text(c.name, x, y)
-          })
+          
          
           // Quickdraw drawing example
           // You would need to do something *more interesting* than just drawing the images
@@ -89,6 +77,7 @@ window.addEventListener("load", function () {
       let p = undefined;
       const CANVAS_WIDTH = 400;
       const CANVAS_HEIGHT = 300;
+      
       // Create P5
       const CANVAS_EL = this.$refs.canvasHolder;
       CANVAS_EL.style.width = CANVAS_WIDTH + "px";
